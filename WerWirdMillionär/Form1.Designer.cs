@@ -28,16 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.groupBoxGeld = new System.Windows.Forms.GroupBox();
             this.SuspendLayout();
             // 
             // groupBoxGeld
             // 
             this.groupBoxGeld.BackColor = System.Drawing.Color.Transparent;
+            this.groupBoxGeld.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBoxGeld.BackgroundImage")));
             this.groupBoxGeld.ForeColor = System.Drawing.Color.White;
-            this.groupBoxGeld.Location = new System.Drawing.Point(512, -5);
+            this.groupBoxGeld.Location = new System.Drawing.Point(444, -6);
             this.groupBoxGeld.Name = "groupBoxGeld";
-            this.groupBoxGeld.Size = new System.Drawing.Size(137, 313);
+            this.groupBoxGeld.Size = new System.Drawing.Size(260, 444);
             this.groupBoxGeld.TabIndex = 1;
             this.groupBoxGeld.TabStop = false;
             // 
@@ -46,7 +48,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(650, 306);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(704, 561);
             this.Controls.Add(this.groupBoxGeld);
             this.ForeColor = System.Drawing.Color.White;
             this.Name = "Form1";

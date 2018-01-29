@@ -16,6 +16,12 @@ namespace WerWirdMillionär
         {
             InitializeComponent();
             ErstellePreisListe();
+            ErstelleButtons();
+        }
+
+        private void ErstelleButtons()
+        {
+            Label[] antwortButtons = new Label[4];
         }
 
         private void ErstellePreisListe()
