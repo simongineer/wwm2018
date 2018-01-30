@@ -12,11 +12,136 @@ namespace WerWirdMillionär
 {
     public partial class Form1 : Form
     {
+        // Pfad muss evtl geändert werden (CH)
+        private Image buttonHover = Image.FromFile(@"Resources\WWM buttonHover.png");
+        private Image buttonIdle = Image.FromFile(@"Resources\WWM buttonIdle.png");
         public Form1()
         {
             InitializeComponent();
             ErstellePreisListe();
             ErstelleButtons();
+            SetzeTransparenz();
+        }
+
+        // Made by Ch
+        private void SetzeTransparenz()
+        {
+
+            Control transparentParent = null;
+            Point pos = Point.Empty;
+            Component me = null;
+            PictureBox pictureBoxMe = null;
+            Label labelMe = null;
+
+            // Ui_layer1
+
+            transparentParent = background;
+            me = Ui_layer1;
+            pictureBoxMe = (PictureBox)me;
+            pos = this.PointToScreen(pictureBoxMe.Location);
+            pos = transparentParent.PointToClient(pos);
+            pictureBoxMe.Parent = transparentParent;
+            pictureBoxMe.Location = pos;
+            pictureBoxMe.BackColor = Color.Transparent;
+            pictureBoxMe.BringToFront();
+
+            // button_answer_1
+
+            transparentParent = Ui_layer1;
+            me = button_answer_1;
+            pictureBoxMe = (PictureBox)me;
+            pos = this.PointToScreen(pictureBoxMe.Location);
+            pos = transparentParent.PointToClient(pos);
+            pictureBoxMe.Parent = transparentParent;
+            pictureBoxMe.Location = pos;
+            pictureBoxMe.BackColor = Color.Transparent;
+            pictureBoxMe.BringToFront();
+
+            // label_answer_1
+
+            transparentParent = button_answer_1;
+            me = label_answer_1;
+            labelMe = (Label)me;
+            pos = this.PointToScreen(labelMe.Location);
+            pos = transparentParent.PointToClient(pos);
+            labelMe.Parent = transparentParent;
+            labelMe.Location = pos;
+            labelMe.BackColor = Color.Transparent;
+            labelMe.BringToFront();
+
+            // button_answer_2
+
+            transparentParent = Ui_layer1;
+            me = button_answer_2;
+            pictureBoxMe = (PictureBox)me;
+            pos = this.PointToScreen(pictureBoxMe.Location);
+            pos = transparentParent.PointToClient(pos);
+            pictureBoxMe.Parent = transparentParent;
+            pictureBoxMe.Location = pos;
+            pictureBoxMe.BackColor = Color.Transparent;
+            pictureBoxMe.BringToFront();
+
+            // label_answer_2
+
+            transparentParent = button_answer_2;
+            me = label_answer_2;
+            labelMe = (Label)me;
+            pos = this.PointToScreen(labelMe.Location);
+            pos = transparentParent.PointToClient(pos);
+            labelMe.Parent = transparentParent;
+            labelMe.Location = pos;
+            labelMe.BackColor = Color.Transparent;
+            labelMe.BringToFront();
+
+            // button_answer_3
+
+            transparentParent = Ui_layer1;
+            me = button_answer_3;
+            pictureBoxMe = (PictureBox)me;
+            pos = this.PointToScreen(pictureBoxMe.Location);
+            pos = transparentParent.PointToClient(pos);
+            pictureBoxMe.Parent = transparentParent;
+            pictureBoxMe.Location = pos;
+            pictureBoxMe.BackColor = Color.Transparent;
+            pictureBoxMe.BringToFront();
+
+            // label_answer_3
+
+            transparentParent = button_answer_3;
+            me = label_answer_3;
+            labelMe = (Label)me;
+            pos = this.PointToScreen(labelMe.Location);
+            pos = transparentParent.PointToClient(pos);
+            labelMe.Parent = transparentParent;
+            labelMe.Location = pos;
+            labelMe.BackColor = Color.Transparent;
+            labelMe.BringToFront();
+
+            // button_answer_4
+
+            transparentParent = Ui_layer1;
+            me = button_answer_4;
+            pictureBoxMe = (PictureBox)me;
+            pos = this.PointToScreen(pictureBoxMe.Location);
+            pos = transparentParent.PointToClient(pos);
+            pictureBoxMe.Parent = transparentParent;
+            pictureBoxMe.Location = pos;
+            pictureBoxMe.BackColor = Color.Transparent;
+            pictureBoxMe.BringToFront();
+
+            // label_answer_4
+
+            transparentParent = button_answer_4;
+            me = label_answer_4;
+            labelMe = (Label)me;
+            pos = this.PointToScreen(labelMe.Location);
+            pos = transparentParent.PointToClient(pos);
+            labelMe.Parent = transparentParent;
+            labelMe.Location = pos;
+            labelMe.BackColor = Color.Transparent;
+            labelMe.BringToFront();
+
+
         }
 
         private void ErstelleButtons()
@@ -58,6 +183,46 @@ namespace WerWirdMillionär
                     labelZahlen[i].Text = String.Format("{0}", i + 1);
                 groupBoxGeld.Controls.Add(labelZahlen[i]);
             }
+        }
+
+
+        // Methode gilt für alle Buttons (MouseEnter) (CH)
+        private void setAnswerButtonStateHover(object sender, EventArgs e)
+        {
+            PictureBox me = (PictureBox)sender;
+            me.Image = buttonHover;
+        }
+
+        // Wird beim eintreten in den Ui_layer1 ausgeführt (MouserEnter) (CH)
+        private void resetAnswerButtonState(object sender, EventArgs e)
+        {
+            button_answer_1.Image = buttonIdle;
+            button_answer_2.Image = buttonIdle;
+            button_answer_3.Image = buttonIdle;
+            button_answer_4.Image = buttonIdle;
+        }
+        // Methode gilt für alle Buttons (MosueClick) (CH)
+        private void getAnswerIndex(object sender, MouseEventArgs e)
+        {
+            Int32 index = 0;
+            try
+            {
+                String indexSting = ((Control)sender).Name.Split('_')[2];
+                bool result = Int32.TryParse(indexSting, out index);
+                if(result == false)
+                {
+                    MessageBox.Show("Something went wrong");
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+            }
+
+            
+            MessageBox.Show("Es wurde " + index + " ausgewählt!");
+
+
         }
     }
 }
