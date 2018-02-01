@@ -16,7 +16,9 @@ namespace WerWirdMillionär
         private Image buttonHover =(Image)Resources.Button_Hover;
         private Image buttonIdle = (Image)Resources.Button_Idle;
         OleDbConnection con = null;
-        private int schwierigkeit;
+        OleDbDataReader reader = null;
+        private int schwierigkeit = 1;
+        List<Frage> frageliste = new List<Frage>();
         public Form1()
         {
             InitializeComponent();
@@ -44,7 +46,32 @@ namespace WerWirdMillionär
         public void startenSpiel()
         {
             OleDbCommand cmd = con.CreateCommand();
-            cmd.CommandText = "Select * from tFragen where Schwierigkeit = " + schwierigkeit;
+            cmd.CommandText = "Select * from tFragen where Schwierigkeit = 1";
+            reader = cmd.ExecuteReader();
+            while(reader.Read())
+            {
+                Frage f = MkFrageObject(reader);
+                frageliste.Add(f);
+                label_question_1.Text = f.Frage1;
+                label_answer_1.Text = f.AntwortF2;
+                label_answer_2.Text = f.AntwortF3;
+                label_answer_3.Text = f.AntwortR;
+                label_answer_4.Text = f.AntwortF1;
+            }
+            
+        }
+
+        private Frage MkFrageObject(OleDbDataReader reader)
+        {
+            Frage f = new Frage();
+            f.Id = reader.GetInt32(0);
+            f.Schwierigkeit = reader.GetInt32(1);
+            f.Frage1 = reader.GetString(2);
+            f.AntwortR = reader.GetString(3);
+            f.AntwortF1 = reader.GetString(4);
+            f.AntwortF2 = reader.GetString(5);
+            f.AntwortF3 = reader.GetString(6);
+            return f;
         }
 
         // Made by Ch
