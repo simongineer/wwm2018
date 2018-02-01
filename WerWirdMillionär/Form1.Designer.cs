@@ -40,12 +40,20 @@
             this.label_answer_4 = new System.Windows.Forms.Label();
             this.button_answer_4 = new System.Windows.Forms.PictureBox();
             this.background = new System.Windows.Forms.PictureBox();
+            this.label_question_1 = new System.Windows.Forms.Label();
+            this.label_question_2 = new System.Windows.Forms.Label();
+            this.button_joker_1 = new System.Windows.Forms.PictureBox();
+            this.button_joker_2 = new System.Windows.Forms.PictureBox();
+            this.button_joker_3 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.Ui_layer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.button_answer_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.button_answer_2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.button_answer_3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.button_answer_4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.background)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.button_joker_1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.button_joker_2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.button_joker_3)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxGeld
@@ -176,6 +184,58 @@
             this.background.TabIndex = 11;
             this.background.TabStop = false;
             // 
+            // label_question_1
+            // 
+            this.label_question_1.AutoSize = true;
+            this.label_question_1.BackColor = System.Drawing.Color.Transparent;
+            this.label_question_1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_question_1.Location = new System.Drawing.Point(179, 403);
+            this.label_question_1.Name = "label_question_1";
+            this.label_question_1.Size = new System.Drawing.Size(301, 19);
+            this.label_question_1.TabIndex = 12;
+            this.label_question_1.Text = "Generic Questing located in Line 1 of 2";
+            // 
+            // label_question_2
+            // 
+            this.label_question_2.AutoSize = true;
+            this.label_question_2.BackColor = System.Drawing.Color.Transparent;
+            this.label_question_2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_question_2.Location = new System.Drawing.Point(179, 425);
+            this.label_question_2.Name = "label_question_2";
+            this.label_question_2.Size = new System.Drawing.Size(311, 19);
+            this.label_question_2.TabIndex = 13;
+            this.label_question_2.Text = "Generic Questing located in Line 2 of 2?";
+            // 
+            // button_joker_1
+            // 
+            this.button_joker_1.Image = ((System.Drawing.Image)(resources.GetObject("button_joker_1.Image")));
+            this.button_joker_1.Location = new System.Drawing.Point(12, 12);
+            this.button_joker_1.Name = "button_joker_1";
+            this.button_joker_1.Size = new System.Drawing.Size(80, 39);
+            this.button_joker_1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.button_joker_1.TabIndex = 14;
+            this.button_joker_1.TabStop = false;
+            // 
+            // button_joker_2
+            // 
+            this.button_joker_2.Image = ((System.Drawing.Image)(resources.GetObject("button_joker_2.Image")));
+            this.button_joker_2.Location = new System.Drawing.Point(98, 12);
+            this.button_joker_2.Name = "button_joker_2";
+            this.button_joker_2.Size = new System.Drawing.Size(80, 39);
+            this.button_joker_2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.button_joker_2.TabIndex = 15;
+            this.button_joker_2.TabStop = false;
+            // 
+            // button_joker_3
+            // 
+            this.button_joker_3.Image = ((System.Drawing.Image)(resources.GetObject("button_joker_3.Image")));
+            this.button_joker_3.Location = new System.Drawing.Point(184, 12);
+            this.button_joker_3.Name = "button_joker_3";
+            this.button_joker_3.Size = new System.Drawing.Size(80, 39);
+            this.button_joker_3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.button_joker_3.TabIndex = 16;
+            this.button_joker_3.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -184,6 +244,11 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(714, 602);
+            this.Controls.Add(this.button_joker_3);
+            this.Controls.Add(this.button_joker_2);
+            this.Controls.Add(this.button_joker_1);
+            this.Controls.Add(this.label_question_2);
+            this.Controls.Add(this.label_question_1);
             this.Controls.Add(this.label_answer_4);
             this.Controls.Add(this.button_answer_4);
             this.Controls.Add(this.label_answer_3);
@@ -205,6 +270,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.button_answer_3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.button_answer_4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.background)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.button_joker_1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.button_joker_2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.button_joker_3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,6 +290,11 @@
         private System.Windows.Forms.Label label_answer_4;
         private System.Windows.Forms.PictureBox button_answer_4;
         private System.Windows.Forms.PictureBox background;
+        private System.Windows.Forms.Label label_question_1;
+        private System.Windows.Forms.Label label_question_2;
+        private System.Windows.Forms.PictureBox button_joker_1;
+        private System.Windows.Forms.PictureBox button_joker_2;
+        private System.Windows.Forms.PictureBox button_joker_3;
     }
 }
 

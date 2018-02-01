@@ -13,10 +13,8 @@ namespace WerWirdMillionär
 {
     public partial class Form1 : Form
     {
-        // Pfad muss evtl geändert werden (CH)
-        // private Image buttonHover = Image.FromFile(@"Resources\WWM buttonHover.png");
-        // private Image buttonIdle = Image.FromFile(@"Resources\WWM buttonIdle.png");
-
+         private Image buttonHover =(Image)Resources.Button_Hover;
+        private Image buttonIdle = (Image)Resources.Button_Idle;
         public Form1()
         {
             InitializeComponent();
@@ -147,6 +145,66 @@ namespace WerWirdMillionär
             labelMe.BackColor = Color.Transparent;
             labelMe.BringToFront();
 
+            // label_question_1
+
+            transparentParent = Ui_layer1;
+            me = label_question_1;
+            labelMe = (Label)me;
+            pos = this.PointToScreen(labelMe.Location);
+            pos = transparentParent.PointToClient(pos);
+            labelMe.Parent = transparentParent;
+            labelMe.Location = pos;
+            labelMe.BackColor = Color.Transparent;
+            labelMe.BringToFront();
+
+            // label_question_2
+
+            transparentParent = Ui_layer1;
+            me = label_question_2;
+            labelMe = (Label)me;
+            pos = this.PointToScreen(labelMe.Location);
+            pos = transparentParent.PointToClient(pos);
+            labelMe.Parent = transparentParent;
+            labelMe.Location = pos;
+            labelMe.BackColor = Color.Transparent;
+            labelMe.BringToFront();
+
+            // button_joker_1
+
+            transparentParent = Ui_layer1;
+            me = button_joker_1;
+            pictureBoxMe = (PictureBox)me;
+            pos = this.PointToScreen(pictureBoxMe.Location);
+            pos = transparentParent.PointToClient(pos);
+            pictureBoxMe.Parent = transparentParent;
+            pictureBoxMe.Location = pos;
+            pictureBoxMe.BackColor = Color.Transparent;
+            pictureBoxMe.BringToFront();
+
+            // button_joker_2
+
+            transparentParent = Ui_layer1;
+            me = button_joker_2;
+            pictureBoxMe = (PictureBox)me;
+            pos = this.PointToScreen(pictureBoxMe.Location);
+            pos = transparentParent.PointToClient(pos);
+            pictureBoxMe.Parent = transparentParent;
+            pictureBoxMe.Location = pos;
+            pictureBoxMe.BackColor = Color.Transparent;
+            pictureBoxMe.BringToFront();
+
+            // button_joker_3
+
+            transparentParent = Ui_layer1;
+            me = button_joker_3;
+            pictureBoxMe = (PictureBox)me;
+            pos = this.PointToScreen(pictureBoxMe.Location);
+            pos = transparentParent.PointToClient(pos);
+            pictureBoxMe.Parent = transparentParent;
+            pictureBoxMe.Location = pos;
+            pictureBoxMe.BackColor = Color.Transparent;
+            pictureBoxMe.BringToFront();
+
 
         }
 
@@ -196,16 +254,16 @@ namespace WerWirdMillionär
         private void setAnswerButtonStateHover(object sender, EventArgs e)
         {
             PictureBox me = (PictureBox)sender;
-           // me.Image = buttonHover;
+            me.Image = buttonHover;
         }
 
         // Wird beim eintreten in den Ui_layer1 ausgeführt (MouserEnter) (CH)
         private void resetAnswerButtonState(object sender, EventArgs e)
         {
-            //button_answer_1.Image = buttonIdle;
-            //button_answer_2.Image = buttonIdle;
-            //button_answer_3.Image = buttonIdle;
-            //button_answer_4.Image = buttonIdle;
+            button_answer_1.Image = buttonIdle;
+            button_answer_2.Image = buttonIdle;
+            button_answer_3.Image = buttonIdle;
+            button_answer_4.Image = buttonIdle;
         }
         // Methode gilt für alle Buttons (MosueClick) (CH)
         private void getAnswerIndex(object sender, MouseEventArgs e)
@@ -229,6 +287,26 @@ namespace WerWirdMillionär
             MessageBox.Show("Es wurde " + index + " ausgewählt!");
 
 
+        }
+
+        private void getJokerIndex(object sender, MouseEventArgs e)
+        {
+            Int32 index = 0;
+            try
+            {
+                String indexSting = ((Control)sender).Name.Split('_')[2];
+                bool result = Int32.TryParse(indexSting, out index);
+                if (result == false)
+                {
+                    MessageBox.Show("Something went wrong");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+            }
+
+            MessageBox.Show("Es wurde Joker " + index + " ausgewählt!");
         }
     }
 }
