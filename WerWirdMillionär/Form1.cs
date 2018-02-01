@@ -13,18 +13,38 @@ namespace WerWirdMillionär
 {
     public partial class Form1 : Form
     {
-         private Image buttonHover =(Image)Resources.Button_Hover;
+        private Image buttonHover =(Image)Resources.Button_Hover;
         private Image buttonIdle = (Image)Resources.Button_Idle;
+        OleDbConnection con = null;
+        private int schwierigkeit;
         public Form1()
         {
             InitializeComponent();
             ErstellePreisListe();
             ErstelleButtons();
             SetzeTransparenz();
+            verbindeDB();
         }
+
+        private void verbindeDB()
+        {
+            con = new OleDbConnection();
+            con.ConnectionString = Properties.Settings.Default.DBCon;
+            try
+            {
+                con.Open();
+            }
+            catch(InvalidOperationException ex)
+            {
+                MessageBox.Show("Verbindung mit Datenbank nicht möglich");
+            }
+            startenSpiel();
+        }
+
         public void startenSpiel()
         {
-            OleDbCommand cmd;
+            OleDbCommand cmd = con.CreateCommand();
+            cmd.CommandText = "Select * from tFragen where Schwierigkeit = " + schwierigkeit;
         }
 
         // Made by Ch
