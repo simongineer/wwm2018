@@ -53,9 +53,9 @@
             this.groupBoxGeld.BackColor = System.Drawing.Color.Transparent;
             this.groupBoxGeld.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBoxGeld.BackgroundImage")));
             this.groupBoxGeld.ForeColor = System.Drawing.Color.White;
-            this.groupBoxGeld.Location = new System.Drawing.Point(442, 34);
+            this.groupBoxGeld.Location = new System.Drawing.Point(511, 34);
             this.groupBoxGeld.Name = "groupBoxGeld";
-            this.groupBoxGeld.Size = new System.Drawing.Size(260, 444);
+            this.groupBoxGeld.Size = new System.Drawing.Size(191, 338);
             this.groupBoxGeld.TabIndex = 1;
             this.groupBoxGeld.TabStop = false;
             // 

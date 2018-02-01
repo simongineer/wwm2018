@@ -13,8 +13,8 @@ namespace WerWirdMillionär
     public partial class Form1 : Form
     {
         // Pfad muss evtl geändert werden (CH)
-        private Image buttonHover = Image.FromFile(@"Resources\WWM buttonHover.png");
-        private Image buttonIdle = Image.FromFile(@"Resources\WWM buttonIdle.png");
+        // private Image buttonHover = Image.FromFile(@"Resources\WWM buttonHover.png");
+        // private Image buttonIdle = Image.FromFile(@"Resources\WWM buttonIdle.png");
         public Form1()
         {
             InitializeComponent();
@@ -190,16 +190,16 @@ namespace WerWirdMillionär
         private void setAnswerButtonStateHover(object sender, EventArgs e)
         {
             PictureBox me = (PictureBox)sender;
-            me.Image = buttonHover;
+           // me.Image = buttonHover;
         }
 
         // Wird beim eintreten in den Ui_layer1 ausgeführt (MouserEnter) (CH)
         private void resetAnswerButtonState(object sender, EventArgs e)
         {
-            button_answer_1.Image = buttonIdle;
-            button_answer_2.Image = buttonIdle;
-            button_answer_3.Image = buttonIdle;
-            button_answer_4.Image = buttonIdle;
+            //button_answer_1.Image = buttonIdle;
+            //button_answer_2.Image = buttonIdle;
+            //button_answer_3.Image = buttonIdle;
+            //button_answer_4.Image = buttonIdle;
         }
         // Methode gilt für alle Buttons (MosueClick) (CH)
         private void getAnswerIndex(object sender, MouseEventArgs e)
