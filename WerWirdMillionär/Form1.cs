@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.OleDb;
 
 namespace WerWirdMillionär
 {
@@ -15,12 +16,17 @@ namespace WerWirdMillionär
         // Pfad muss evtl geändert werden (CH)
         // private Image buttonHover = Image.FromFile(@"Resources\WWM buttonHover.png");
         // private Image buttonIdle = Image.FromFile(@"Resources\WWM buttonIdle.png");
+
         public Form1()
         {
             InitializeComponent();
             ErstellePreisListe();
             ErstelleButtons();
             SetzeTransparenz();
+        }
+        public void startenSpiel()
+        {
+            OleDbCommand cmd;
         }
 
         // Made by Ch
