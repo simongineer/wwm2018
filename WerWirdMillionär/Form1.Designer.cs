@@ -45,6 +45,8 @@
             this.button_joker_1 = new System.Windows.Forms.PictureBox();
             this.button_joker_2 = new System.Windows.Forms.PictureBox();
             this.button_joker_3 = new System.Windows.Forms.PictureBox();
+            this.button_weiter = new System.Windows.Forms.PictureBox();
+            this.label_weiter = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Ui_layer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.button_answer_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.button_answer_2)).BeginInit();
@@ -54,6 +56,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.button_joker_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.button_joker_2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.button_joker_3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.button_weiter)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxGeld
@@ -193,7 +196,7 @@
             this.label_question_1.Name = "label_question_1";
             this.label_question_1.Size = new System.Drawing.Size(301, 19);
             this.label_question_1.TabIndex = 12;
-            this.label_question_1.Text = "Generic Questing located in Line 1 of 2";
+            this.label_question_1.Text = "Generic Question located in Line 1 of 2";
             // 
             // label_question_2
             // 
@@ -215,26 +218,55 @@
             this.button_joker_1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.button_joker_1.TabIndex = 14;
             this.button_joker_1.TabStop = false;
+            this.button_joker_1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.getJokerIndex);
+            this.button_joker_1.MouseEnter += new System.EventHandler(this.setJoker1ButtonStateHover);
             // 
             // button_joker_2
             // 
             this.button_joker_2.Image = ((System.Drawing.Image)(resources.GetObject("button_joker_2.Image")));
-            this.button_joker_2.Location = new System.Drawing.Point(98, 12);
+            this.button_joker_2.Location = new System.Drawing.Point(105, 12);
             this.button_joker_2.Name = "button_joker_2";
             this.button_joker_2.Size = new System.Drawing.Size(80, 39);
             this.button_joker_2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.button_joker_2.TabIndex = 15;
             this.button_joker_2.TabStop = false;
+            this.button_joker_2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.getJokerIndex);
+            this.button_joker_2.MouseEnter += new System.EventHandler(this.setJoker2ButtonStateHover);
             // 
             // button_joker_3
             // 
             this.button_joker_3.Image = ((System.Drawing.Image)(resources.GetObject("button_joker_3.Image")));
-            this.button_joker_3.Location = new System.Drawing.Point(184, 12);
+            this.button_joker_3.Location = new System.Drawing.Point(197, 12);
             this.button_joker_3.Name = "button_joker_3";
             this.button_joker_3.Size = new System.Drawing.Size(80, 39);
             this.button_joker_3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.button_joker_3.TabIndex = 16;
             this.button_joker_3.TabStop = false;
+            this.button_joker_3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.getJokerIndex);
+            this.button_joker_3.MouseEnter += new System.EventHandler(this.setJoker3ButtonStateHover);
+            // 
+            // button_weiter
+            // 
+            this.button_weiter.Image = ((System.Drawing.Image)(resources.GetObject("button_weiter.Image")));
+            this.button_weiter.Location = new System.Drawing.Point(242, 399);
+            this.button_weiter.Name = "button_weiter";
+            this.button_weiter.Size = new System.Drawing.Size(210, 45);
+            this.button_weiter.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.button_weiter.TabIndex = 17;
+            this.button_weiter.TabStop = false;
+            this.button_weiter.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OnWeiterClick);
+            // 
+            // label_weiter
+            // 
+            this.label_weiter.AutoSize = true;
+            this.label_weiter.BackColor = System.Drawing.Color.Transparent;
+            this.label_weiter.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold);
+            this.label_weiter.Location = new System.Drawing.Point(305, 410);
+            this.label_weiter.Name = "label_weiter";
+            this.label_weiter.Size = new System.Drawing.Size(84, 22);
+            this.label_weiter.TabIndex = 18;
+            this.label_weiter.Text = "WEITER";
+            this.label_weiter.MouseClick += new System.Windows.Forms.MouseEventHandler(this.OnWeiterClick);
             // 
             // Form1
             // 
@@ -244,6 +276,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(714, 602);
+            this.Controls.Add(this.label_weiter);
+            this.Controls.Add(this.button_weiter);
             this.Controls.Add(this.button_joker_3);
             this.Controls.Add(this.button_joker_2);
             this.Controls.Add(this.button_joker_1);
@@ -273,6 +307,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.button_joker_1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.button_joker_2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.button_joker_3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.button_weiter)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -295,6 +330,8 @@
         private System.Windows.Forms.PictureBox button_joker_1;
         private System.Windows.Forms.PictureBox button_joker_2;
         private System.Windows.Forms.PictureBox button_joker_3;
+        private System.Windows.Forms.PictureBox button_weiter;
+        private System.Windows.Forms.Label label_weiter;
     }
 }
 

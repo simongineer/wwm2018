@@ -143,6 +143,16 @@ namespace WerWirdMillionär {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Joker_3 {
+            get {
+                object obj = ResourceManager.GetObject("Joker_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Joker_3_hover {
             get {
                 object obj = ResourceManager.GetObject("Joker_3_hover", resourceCulture);
