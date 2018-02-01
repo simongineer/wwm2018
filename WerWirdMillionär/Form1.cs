@@ -12,8 +12,17 @@ namespace WerWirdMillionär
 {
     public partial class Form1 : Form
     {
-         private Image buttonHover =(Image)Resources.Button_Hover;
+
+        private Image buttonHover =(Image)Resources.Button_Hover;
         private Image buttonIdle = (Image)Resources.Button_Idle;
+
+        private Image jokerHover1 = (Image)Resources.Joker_1_hover;
+        private Image jokerHover2 = (Image)Resources.Joker_2_hover;
+        private Image jokerHover3 = (Image)Resources.Joker_3_hover;
+        private Image joker1Idle = (Image)Resources.Joker_1;
+        private Image joker2Idle = (Image)Resources.Joker_2;
+        private Image joker3Idle = (Image)Resources.Joker_3;
+
         public Form1()
         {
             InitializeComponent();
@@ -200,6 +209,30 @@ namespace WerWirdMillionär
             pictureBoxMe.BackColor = Color.Transparent;
             pictureBoxMe.BringToFront();
 
+            // button_weiter
+
+            transparentParent = Ui_layer1;
+            me = button_weiter;
+            pictureBoxMe = (PictureBox)me;
+            pos = this.PointToScreen(pictureBoxMe.Location);
+            pos = transparentParent.PointToClient(pos);
+            pictureBoxMe.Parent = transparentParent;
+            pictureBoxMe.Location = pos;
+            pictureBoxMe.BackColor = Color.Transparent;
+            pictureBoxMe.BringToFront();
+
+            // label_question_2
+
+            transparentParent = button_weiter;
+            me = label_weiter;
+            labelMe = (Label)me;
+            pos = this.PointToScreen(labelMe.Location);
+            pos = transparentParent.PointToClient(pos);
+            labelMe.Parent = transparentParent;
+            labelMe.Location = pos;
+            labelMe.BackColor = Color.Transparent;
+            labelMe.BringToFront();
+
 
         }
 
@@ -252,6 +285,21 @@ namespace WerWirdMillionär
             me.Image = buttonHover;
         }
 
+        private void setJoker1ButtonStateHover(object sender, EventArgs e)
+        {
+            button_joker_1.Image = jokerHover1;
+        }
+
+        private void setJoker2ButtonStateHover(object sender, EventArgs e)
+        {
+            button_joker_2.Image = jokerHover2;
+        }
+
+        private void setJoker3ButtonStateHover(object sender, EventArgs e)
+        {
+            button_joker_3.Image = jokerHover3;
+        }
+
         // Wird beim eintreten in den Ui_layer1 ausgeführt (MouserEnter) (CH)
         private void resetAnswerButtonState(object sender, EventArgs e)
         {
@@ -259,6 +307,10 @@ namespace WerWirdMillionär
             button_answer_2.Image = buttonIdle;
             button_answer_3.Image = buttonIdle;
             button_answer_4.Image = buttonIdle;
+            button_joker_1.Image = joker1Idle;
+            button_joker_2.Image = joker2Idle;
+            button_joker_3.Image = joker3Idle;
+
         }
         // Methode gilt für alle Buttons (MosueClick) (CH)
         private void getAnswerIndex(object sender, MouseEventArgs e)
@@ -303,5 +355,13 @@ namespace WerWirdMillionär
 
             MessageBox.Show("Es wurde Joker " + index + " ausgewählt!");
         }
+
+        private void OnWeiterClick(object sender, MouseEventArgs e)
+        {
+            MessageBox.Show("Es wurde auf weiter geklickt");
+            button_weiter.Visible = false;
+            label_weiter.Visible = false;
+        }
+
     }
 }
