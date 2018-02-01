@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -59,13 +59,10 @@ namespace WerWirdMillionär
             {
                 Frage f = MkFrageObject(reader);
                 frageliste.Add(f);
-                label_question_1.Text = f.Frage1;
-                label_answer_1.Text = f.AntwortF2;
-                label_answer_2.Text = f.AntwortF3;
-                label_answer_3.Text = f.AntwortR;
-                label_answer_4.Text = f.AntwortF1;
+
             }
-            
+            randomFrage();
+
         }
 
         private Frage MkFrageObject(OleDbDataReader reader)
@@ -79,6 +76,16 @@ namespace WerWirdMillionär
             f.AntwortF2 = reader.GetString(5);
             f.AntwortF3 = reader.GetString(6);
             return f;
+        }
+
+        private void randomFrage()
+        {
+            int r = new Random().Next(1, frageliste.Count());         
+            label_question_1.Text = frageliste[r].Frage1;
+            label_answer_1.Text = frageliste[r].AntwortR;
+            label_answer_2.Text = frageliste[r].AntwortF3;
+            label_answer_3.Text = frageliste[r].AntwortF2;
+            label_answer_4.Text = frageliste[r].AntwortF1;
         }
 
         // Made by Ch
@@ -411,6 +418,7 @@ namespace WerWirdMillionär
             MessageBox.Show("Es wurde auf weiter geklickt");
             button_weiter.Visible = false;
             label_weiter.Visible = false;
+            verbindeDB();
         }
 
     }
