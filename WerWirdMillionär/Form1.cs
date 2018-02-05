@@ -63,6 +63,7 @@ namespace WerWirdMillionär
                 frageliste.Add(f);
 
             }
+            frageliste.Remove(f);
             anzeigezufälligeFrage();
 
         }
