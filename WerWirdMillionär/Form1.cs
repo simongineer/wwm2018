@@ -63,7 +63,7 @@ namespace WerWirdMillionär
             {
                 con.Open();
             }
-            catch(InvalidOperationException ex)
+            catch(OleDbException ex)
             {
                 MessageBox.Show("Verbindung mit Datenbank nicht möglich");
             }
