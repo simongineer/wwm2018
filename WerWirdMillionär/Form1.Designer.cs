@@ -102,6 +102,7 @@
             this.label_answer_1.Name = "label_answer_1";
             this.label_answer_1.Size = new System.Drawing.Size(129, 19);
             this.label_answer_1.TabIndex = 4;
+            this.label_answer_1.Tag = "1";
             this.label_answer_1.Text = "Generic Answer";
             this.label_answer_1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.getAnswerIndex);
             // 
@@ -114,6 +115,7 @@
             this.label_answer_2.Name = "label_answer_2";
             this.label_answer_2.Size = new System.Drawing.Size(129, 19);
             this.label_answer_2.TabIndex = 6;
+            this.label_answer_2.Tag = "2";
             this.label_answer_2.Text = "Generic Answer";
             this.label_answer_2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.getAnswerIndex);
             // 
@@ -138,6 +140,7 @@
             this.label_answer_3.Name = "label_answer_3";
             this.label_answer_3.Size = new System.Drawing.Size(129, 19);
             this.label_answer_3.TabIndex = 8;
+            this.label_answer_3.Tag = "3";
             this.label_answer_3.Text = "Generic Answer";
             this.label_answer_3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.getAnswerIndex);
             // 
@@ -162,6 +165,7 @@
             this.label_answer_4.Name = "label_answer_4";
             this.label_answer_4.Size = new System.Drawing.Size(129, 19);
             this.label_answer_4.TabIndex = 10;
+            this.label_answer_4.Tag = "4";
             this.label_answer_4.Text = "Generic Answer";
             this.label_answer_4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.getAnswerIndex);
             // 
