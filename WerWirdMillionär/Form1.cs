@@ -146,6 +146,7 @@ namespace WerWirdMillionär
             PictureBox pictureBoxMe = null;
             Label labelMe = null;
 
+
             // Ui_layer1
 
             transparentParent = background;
@@ -258,25 +259,13 @@ namespace WerWirdMillionär
 
             transparentParent = Ui_layer1;
             me = label_question_1;
-            labelMe = (Label)me;
+            Label textBox = (Label)me;
             pos = this.PointToScreen(labelMe.Location);
             pos = transparentParent.PointToClient(pos);
-            labelMe.Parent = transparentParent;
-            labelMe.Location = pos;
-            labelMe.BackColor = Color.Transparent;
-            labelMe.BringToFront();
-
-            // label_question_2
-
-            transparentParent = Ui_layer1;
-            me = label_question_2;
-            labelMe = (Label)me;
-            pos = this.PointToScreen(labelMe.Location);
-            pos = transparentParent.PointToClient(pos);
-            labelMe.Parent = transparentParent;
-            labelMe.Location = pos;
-            labelMe.BackColor = Color.Transparent;
-            labelMe.BringToFront();
+            textBox.Parent = transparentParent;
+            textBox.Location = pos;
+            
+            textBox.BringToFront();
 
             // button_joker_1
 
@@ -386,35 +375,44 @@ namespace WerWirdMillionär
         // Methode gilt für alle Buttons (MouseEnter) (CH)
         private void setAnswerButtonStateHover(object sender, EventArgs e)
         {
-            PictureBox me = (PictureBox)sender;
-            me.Image = buttonHover;
+            if (button_weiter.Visible == false)
+            {
+                PictureBox me = (PictureBox)sender;
+                me.Image = buttonHover;
+            }
         }
 
         private void setJoker1ButtonStateHover(object sender, EventArgs e)
         {
-            button_joker_1.Image = jokerHover1;
+            if (button_weiter.Visible == false)
+                button_joker_1.Image = jokerHover1;
         }
 
         private void setJoker2ButtonStateHover(object sender, EventArgs e)
         {
-            button_joker_2.Image = jokerHover2;
+            if (button_weiter.Visible == false)
+                button_joker_2.Image = jokerHover2;
         }
 
         private void setJoker3ButtonStateHover(object sender, EventArgs e)
         {
-            button_joker_3.Image = jokerHover3;
+            if (button_weiter.Visible == false)
+                button_joker_3.Image = jokerHover3;
         }
 
         // Wird beim eintreten in den Ui_layer1 ausgeführt (MouserEnter) (CH)
         private void resetAnswerButtonState(object sender, EventArgs e)
         {
-            button_answer_1.Image = buttonIdle;
-            button_answer_2.Image = buttonIdle;
-            button_answer_3.Image = buttonIdle;
-            button_answer_4.Image = buttonIdle;
-            button_joker_1.Image = joker1Idle;
-            button_joker_2.Image = joker2Idle;
-            button_joker_3.Image = joker3Idle;
+            if (button_weiter.Visible == false)
+            {
+                button_answer_1.Image = buttonIdle;
+                button_answer_2.Image = buttonIdle;
+                button_answer_3.Image = buttonIdle;
+                button_answer_4.Image = buttonIdle;
+                button_joker_1.Image = joker1Idle;
+                button_joker_2.Image = joker2Idle;
+                button_joker_3.Image = joker3Idle;
+            }
 
         }
         // Methode gilt für alle Buttons (MosueClick) (CH)
@@ -430,13 +428,18 @@ namespace WerWirdMillionär
                     MessageBox.Show("Something went wrong");
                 }
                 String myStingValue = answerLabels[index - 1].Text;
-                if (myStingValue == frageliste[schwierigkeit].AntwortR)
+                if (myStingValue == frageliste[r].AntwortR && button_weiter.Visible == false)
                 {
                     answerButtons[index - 1].Image = buttonRight;
+                    schwierigkeit++;
+                    RufeWeiterButton("Weiter");
+
+
                 }
-                else
+                else if (button_weiter.Visible == false)
                 {
                     answerButtons[index - 1].Image = buttonFalse;
+                    RufeWeiterButton("Verloren");
                 }
             }
             catch (Exception ex)
@@ -470,13 +473,20 @@ namespace WerWirdMillionär
             MessageBox.Show("Es wurde Joker " + index + " ausgewählt!");
         }
 
-        
+        private void RufeWeiterButton(String text)
+        {
+            label_weiter.Text = text;
+            button_weiter.Visible = true;
+            label_weiter.Visible = true;
+        }
 
         private void OnWeiterClick(object sender, MouseEventArgs e)
         {
             button_weiter.Visible = false;
             label_weiter.Visible = false;
             verbindeDB();
+            anzeigezufälligeFrage();
+            resetAnswerButtonState(sender,e);
         }
 
     }

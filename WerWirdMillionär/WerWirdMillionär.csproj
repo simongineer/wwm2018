@@ -114,13 +114,13 @@
     <None Include="Resources\Button_NegativePress.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Button_PositivePress.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Button_Idle2.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Joker_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button_PositivePress.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
