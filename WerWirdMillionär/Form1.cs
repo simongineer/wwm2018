@@ -61,7 +61,7 @@ namespace WerWirdMillionär
                 frageliste.Add(f);
 
             }
-            randomFrage();
+            anzeigezufälligeFrage();
 
         }
 
@@ -78,9 +78,9 @@ namespace WerWirdMillionär
             return f;
         }
 
-        private void randomFrage()
+        private void anzeigezufälligeFrage()
         {
-            int r = new Random().Next(1, frageliste.Count());         
+            int r = new Random().Next(0, frageliste.Count());         
             label_question_1.Text = frageliste[r].Frage1;
             label_answer_1.Text = frageliste[r].AntwortR;
             label_answer_2.Text = frageliste[r].AntwortF3;
