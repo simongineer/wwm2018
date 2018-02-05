@@ -105,10 +105,35 @@ namespace WerWirdMillionär
         {
             r = new Random().Next(0, frageliste.Count());         
             label_question_1.Text = frageliste[r].Frage1;
-            label_answer_1.Text = frageliste[r].AntwortR;
-            label_answer_2.Text = frageliste[r].AntwortF3;
-            label_answer_3.Text = frageliste[r].AntwortF2;
-            label_answer_4.Text = frageliste[r].AntwortF1;
+            int s = new Random().Next(1, 4);
+            if(s == 1)
+            {
+                label_answer_1.Text = frageliste[r].AntwortR;
+                label_answer_2.Text = frageliste[r].AntwortF1;
+                label_answer_3.Text = frageliste[r].AntwortF2;
+                label_answer_4.Text = frageliste[r].AntwortF3;
+            }
+            else if(s == 2)
+            {
+                label_answer_2.Text = frageliste[r].AntwortR;
+                label_answer_1.Text = frageliste[r].AntwortF1;
+                label_answer_3.Text = frageliste[r].AntwortF2;
+                label_answer_4.Text = frageliste[r].AntwortF3;
+            }
+            else if(s == 3)
+            {
+                label_answer_3.Text = frageliste[r].AntwortR;
+                label_answer_1.Text = frageliste[r].AntwortF1;
+                label_answer_2.Text = frageliste[r].AntwortF2;
+                label_answer_4.Text = frageliste[r].AntwortF3;
+            }
+            else if(s == 4)
+            {
+                label_answer_4.Text = frageliste[r].AntwortR;
+                label_answer_1.Text = frageliste[r].AntwortF1;
+                label_answer_2.Text = frageliste[r].AntwortF2;
+                label_answer_3.Text = frageliste[r].AntwortF3;
+            }
         }
 
         // Made by Ch
