@@ -25,7 +25,7 @@ namespace WerWirdMillionär
 
         OleDbConnection con = null;
         OleDbDataReader reader = null;
-        private int schwierigkeit = 1;
+        private int schwierigkeit = 0;
         List<Frage> frageliste = new List<Frage>();
         public Form1()
         {
@@ -47,21 +47,25 @@ namespace WerWirdMillionär
             {
                 MessageBox.Show("Verbindung mit Datenbank nicht möglich");
             }
-            startenSpiel();
+            holeFrage();
         }
 
-        public void startenSpiel()
+        public void holeFrage()
         {
+            schwierigkeit++;
+            Frage f = null;
             OleDbCommand cmd = con.CreateCommand();
-            cmd.CommandText = "Select * from tFragen where Schwierigkeit = 1";
+            cmd.CommandText = "Select * from tFragen where Schwierigkeit = " + schwierigkeit;
             reader = cmd.ExecuteReader();
             while(reader.Read())
             {
-                Frage f = MkFrageObject(reader);
+                f = MkFrageObject(reader);
                 frageliste.Add(f);
 
             }
             randomFrage();
+            frageliste.Remove(f);
+            
 
         }
 
@@ -80,7 +84,7 @@ namespace WerWirdMillionär
 
         private void randomFrage()
         {
-            int r = new Random().Next(1, frageliste.Count());         
+            int r = new Random().Next(0, frageliste.Count());         
             label_question_1.Text = frageliste[r].Frage1;
             label_answer_1.Text = frageliste[r].AntwortR;
             label_answer_2.Text = frageliste[r].AntwortF3;
