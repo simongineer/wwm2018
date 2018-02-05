@@ -15,6 +15,8 @@ namespace WerWirdMillionär
 
         private Image buttonHover = (Image)Resources.Button_Hover;
         private Image buttonIdle = (Image)Resources.Button_Idle;
+        private Image buttonRight = (Image)Resources.Button_PositivePress;
+        private Image buttonFalse = (Image)Resources.Button_NegativePress;
 
         private Image jokerHover1 = (Image)Resources.Joker_1_hover;
         private Image jokerHover2 = (Image)Resources.Joker_2_hover;
@@ -23,9 +25,12 @@ namespace WerWirdMillionär
         private Image joker2Idle = (Image)Resources.Joker_2;
         private Image joker3Idle = (Image)Resources.Joker_3;
 
+        private PictureBox[] answerButtons = new PictureBox[4];
+        private Label[] answerLabels = new Label[4];
+
         OleDbConnection con = null;
         OleDbDataReader reader = null;
-        private int schwierigkeit = 1;
+        private int schwierigkeit = 0;
         List<Frage> frageliste = new List<Frage>();
         private int r;
         public Form1()
@@ -34,6 +39,20 @@ namespace WerWirdMillionär
             ErstellePreisListe();
             ErstelleButtons();
             SetzeTransparenz();
+            FillLabelAndButtons();
+        }
+
+        private void FillLabelAndButtons()
+        {
+            answerButtons[0] = button_answer_1;
+            answerButtons[1] = button_answer_2;
+            answerButtons[2] = button_answer_3;
+            answerButtons[3] = button_answer_4;
+
+            answerLabels[0] = label_answer_1;
+            answerLabels[1] = label_answer_2;
+            answerLabels[2] = label_answer_3;
+            answerLabels[3] = label_answer_4;
         }
 
         private void verbindeDB()
@@ -48,20 +67,23 @@ namespace WerWirdMillionär
             {
                 MessageBox.Show("Verbindung mit Datenbank nicht möglich");
             }
-            startenSpiel();
+            holeFrage();
         }
 
-        public void startenSpiel()
+        public void holeFrage()
         {
+            schwierigkeit++;
+            Frage f = null;
             OleDbCommand cmd = con.CreateCommand();
-            cmd.CommandText = "Select * from tFragen where Schwierigkeit = 1";
+            cmd.CommandText = "Select * from tFragen where Schwierigkeit = " + schwierigkeit;
             reader = cmd.ExecuteReader();
             while(reader.Read())
             {
-                Frage f = MkFrageObject(reader);
+                f = MkFrageObject(reader);
                 frageliste.Add(f);
 
             }
+            frageliste.Remove(f);
             anzeigezufälligeFrage();
 
         }
@@ -407,14 +429,20 @@ namespace WerWirdMillionär
                 {
                     MessageBox.Show("Something went wrong");
                 }
+                String myStingValue = answerLabels[index - 1].Text;
+                if (myStingValue == frageliste[schwierigkeit].AntwortR)
+                {
+                    answerButtons[index - 1].Image = buttonRight;
+                }
+                else
+                {
+                    answerButtons[index - 1].Image = buttonFalse;
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.StackTrace);
             }
-
-
-            MessageBox.Show("Es wurde " + index + " ausgewählt!");
 
 
         }
@@ -430,6 +458,9 @@ namespace WerWirdMillionär
                 {
                     MessageBox.Show("Something went wrong");
                 }
+              
+                
+
             }
             catch (Exception ex)
             {
@@ -439,9 +470,10 @@ namespace WerWirdMillionär
             MessageBox.Show("Es wurde Joker " + index + " ausgewählt!");
         }
 
+        
+
         private void OnWeiterClick(object sender, MouseEventArgs e)
         {
-            MessageBox.Show("Es wurde auf weiter geklickt");
             button_weiter.Visible = false;
             label_weiter.Visible = false;
             verbindeDB();
