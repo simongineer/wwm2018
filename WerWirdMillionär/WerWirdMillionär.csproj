@@ -122,6 +122,15 @@
   <ItemGroup>
     <None Include="Resources\Button_PositivePress.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Joker_1_used.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Joker_2_used.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Joker_3_used.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

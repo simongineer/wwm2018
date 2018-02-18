@@ -123,6 +123,16 @@ namespace WerWirdMillionär {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Joker_1_used {
+            get {
+                object obj = ResourceManager.GetObject("Joker_1_used", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Joker_2 {
             get {
                 object obj = ResourceManager.GetObject("Joker_2", resourceCulture);
@@ -143,6 +153,16 @@ namespace WerWirdMillionär {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Joker_2_used {
+            get {
+                object obj = ResourceManager.GetObject("Joker_2_used", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Joker_3 {
             get {
                 object obj = ResourceManager.GetObject("Joker_3", resourceCulture);
@@ -156,6 +176,16 @@ namespace WerWirdMillionär {
         internal static System.Drawing.Bitmap Joker_3_hover {
             get {
                 object obj = ResourceManager.GetObject("Joker_3_hover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Joker_3_used {
+            get {
+                object obj = ResourceManager.GetObject("Joker_3_used", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

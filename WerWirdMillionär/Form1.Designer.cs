@@ -46,6 +46,10 @@
             this.button_weiter = new System.Windows.Forms.PictureBox();
             this.label_weiter = new System.Windows.Forms.Label();
             this.label_question_1 = new System.Windows.Forms.Label();
+            this.label_answerLabelName_1 = new System.Windows.Forms.Label();
+            this.label_answerLabelNameC_3 = new System.Windows.Forms.Label();
+            this.label_answerLabelName_2 = new System.Windows.Forms.Label();
+            this.label_answerLabelName_4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Ui_layer1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.button_answer_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.button_answer_2)).BeginInit();
@@ -97,7 +101,7 @@
             this.label_answer_1.AutoSize = true;
             this.label_answer_1.BackColor = System.Drawing.Color.Transparent;
             this.label_answer_1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_answer_1.Location = new System.Drawing.Point(142, 481);
+            this.label_answer_1.Location = new System.Drawing.Point(160, 481);
             this.label_answer_1.Name = "label_answer_1";
             this.label_answer_1.Size = new System.Drawing.Size(129, 19);
             this.label_answer_1.TabIndex = 4;
@@ -110,7 +114,7 @@
             this.label_answer_2.AutoSize = true;
             this.label_answer_2.BackColor = System.Drawing.Color.Transparent;
             this.label_answer_2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_answer_2.Location = new System.Drawing.Point(420, 481);
+            this.label_answer_2.Location = new System.Drawing.Point(442, 481);
             this.label_answer_2.Name = "label_answer_2";
             this.label_answer_2.Size = new System.Drawing.Size(129, 19);
             this.label_answer_2.TabIndex = 6;
@@ -135,7 +139,7 @@
             this.label_answer_3.AutoSize = true;
             this.label_answer_3.BackColor = System.Drawing.Color.Transparent;
             this.label_answer_3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_answer_3.Location = new System.Drawing.Point(142, 542);
+            this.label_answer_3.Location = new System.Drawing.Point(160, 542);
             this.label_answer_3.Name = "label_answer_3";
             this.label_answer_3.Size = new System.Drawing.Size(129, 19);
             this.label_answer_3.TabIndex = 8;
@@ -160,7 +164,7 @@
             this.label_answer_4.AutoSize = true;
             this.label_answer_4.BackColor = System.Drawing.Color.Transparent;
             this.label_answer_4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_answer_4.Location = new System.Drawing.Point(420, 542);
+            this.label_answer_4.Location = new System.Drawing.Point(442, 542);
             this.label_answer_4.Name = "label_answer_4";
             this.label_answer_4.Size = new System.Drawing.Size(129, 19);
             this.label_answer_4.TabIndex = 10;
@@ -260,6 +264,58 @@
             this.label_question_1.TabIndex = 12;
             this.label_question_1.Text = "Generic Question located in Line 1 of 2";
             // 
+            // label_answerLabelName_1
+            // 
+            this.label_answerLabelName_1.AutoSize = true;
+            this.label_answerLabelName_1.BackColor = System.Drawing.Color.Transparent;
+            this.label_answerLabelName_1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_answerLabelName_1.Location = new System.Drawing.Point(136, 481);
+            this.label_answerLabelName_1.Name = "label_answerLabelName_1";
+            this.label_answerLabelName_1.Size = new System.Drawing.Size(26, 19);
+            this.label_answerLabelName_1.TabIndex = 19;
+            this.label_answerLabelName_1.Tag = "1";
+            this.label_answerLabelName_1.Text = "A:";
+            this.label_answerLabelName_1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.getAnswerIndex);
+            // 
+            // label_answerLabelNameC_3
+            // 
+            this.label_answerLabelNameC_3.AutoSize = true;
+            this.label_answerLabelNameC_3.BackColor = System.Drawing.Color.Transparent;
+            this.label_answerLabelNameC_3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_answerLabelNameC_3.Location = new System.Drawing.Point(136, 542);
+            this.label_answerLabelNameC_3.Name = "label_answerLabelNameC_3";
+            this.label_answerLabelNameC_3.Size = new System.Drawing.Size(27, 19);
+            this.label_answerLabelNameC_3.TabIndex = 20;
+            this.label_answerLabelNameC_3.Tag = "1";
+            this.label_answerLabelNameC_3.Text = "C:";
+            this.label_answerLabelNameC_3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.getAnswerIndex);
+            // 
+            // label_answerLabelName_2
+            // 
+            this.label_answerLabelName_2.AutoSize = true;
+            this.label_answerLabelName_2.BackColor = System.Drawing.Color.Transparent;
+            this.label_answerLabelName_2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_answerLabelName_2.Location = new System.Drawing.Point(417, 481);
+            this.label_answerLabelName_2.Name = "label_answerLabelName_2";
+            this.label_answerLabelName_2.Size = new System.Drawing.Size(27, 19);
+            this.label_answerLabelName_2.TabIndex = 21;
+            this.label_answerLabelName_2.Tag = "1";
+            this.label_answerLabelName_2.Text = "B:";
+            this.label_answerLabelName_2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.getAnswerIndex);
+            // 
+            // label_answerLabelName_4
+            // 
+            this.label_answerLabelName_4.AutoSize = true;
+            this.label_answerLabelName_4.BackColor = System.Drawing.Color.Transparent;
+            this.label_answerLabelName_4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_answerLabelName_4.Location = new System.Drawing.Point(417, 542);
+            this.label_answerLabelName_4.Name = "label_answerLabelName_4";
+            this.label_answerLabelName_4.Size = new System.Drawing.Size(27, 19);
+            this.label_answerLabelName_4.TabIndex = 22;
+            this.label_answerLabelName_4.Tag = "1";
+            this.label_answerLabelName_4.Text = "D:";
+            this.label_answerLabelName_4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.getAnswerIndex);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -268,6 +324,10 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(714, 602);
+            this.Controls.Add(this.label_answerLabelName_4);
+            this.Controls.Add(this.label_answerLabelName_2);
+            this.Controls.Add(this.label_answerLabelNameC_3);
+            this.Controls.Add(this.label_answerLabelName_1);
             this.Controls.Add(this.label_weiter);
             this.Controls.Add(this.button_weiter);
             this.Controls.Add(this.button_joker_3);
@@ -322,6 +382,10 @@
         private System.Windows.Forms.PictureBox button_weiter;
         private System.Windows.Forms.Label label_weiter;
         private System.Windows.Forms.Label label_question_1;
+        private System.Windows.Forms.Label label_answerLabelName_1;
+        private System.Windows.Forms.Label label_answerLabelNameC_3;
+        private System.Windows.Forms.Label label_answerLabelName_2;
+        private System.Windows.Forms.Label label_answerLabelName_4;
     }
 }
 

@@ -24,19 +24,31 @@ namespace WerWirdMillionär
         private Image joker1Idle = (Image)Resources.Joker_1;
         private Image joker2Idle = (Image)Resources.Joker_2;
         private Image joker3Idle = (Image)Resources.Joker_3;
+        private Image joker1Used = (Image)Resources.Joker_1_used;
+        private Image joker2Used = (Image)Resources.Joker_2_used;
+        private Image joker3Used = (Image)Resources.Joker_3_used;
 
         private PictureBox[] answerButtons = new PictureBox[4];
         private Label[] answerLabels = new Label[4];
 
+        private Boolean jokerStatus1 = true;
+        private Boolean jokerStatus2 = true;
+        private Boolean jokerStatus3 = true;
         OleDbConnection con = null;
         OleDbDataReader reader = null;
         private int schwierigkeit = 0;
         List<Frage> frageliste = new List<Frage>();
+        private int preisStufe = -1;
+        private String testDBString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Users\RitusChristus\Desktop\test1.accdb";
         private int r;
+
+        private Label[] labelPreise;
+        private Label[] labelZahlen;
+
         public Form1()
         {
             InitializeComponent();
-            ErstellePreisListe();
+            //ErstellePreisListe();
             ErstelleButtons();
             SetzeTransparenz();
             FillLabelAndButtons();
@@ -59,6 +71,7 @@ namespace WerWirdMillionär
         {
             con = new OleDbConnection();
             con.ConnectionString = Properties.Settings.Default.DBCon;
+            con.ConnectionString = testDBString;
             try
             {
                 con.Open();
@@ -67,12 +80,12 @@ namespace WerWirdMillionär
             {
                 MessageBox.Show("Verbindung mit Datenbank nicht möglich");
             }
-            holeFrage();
         }
 
         public void holeFrage()
         {
             schwierigkeit++;
+            frageliste.Clear();
             Frage f = null;
             OleDbCommand cmd = con.CreateCommand();
             cmd.CommandText = "Select * from tFragen where Schwierigkeit = " + schwierigkeit;
@@ -83,7 +96,7 @@ namespace WerWirdMillionär
                 frageliste.Add(f);
 
             }
-            frageliste.Remove(f);
+            //frageliste.Remove(f);
             anzeigezufälligeFrage();
 
         }
@@ -260,7 +273,7 @@ namespace WerWirdMillionär
             transparentParent = Ui_layer1;
             me = label_question_1;
             Label textBox = (Label)me;
-            pos = this.PointToScreen(labelMe.Location);
+            pos = this.PointToScreen(textBox.Location);
             pos = transparentParent.PointToClient(pos);
             textBox.Parent = transparentParent;
             textBox.Location = pos;
@@ -327,6 +340,54 @@ namespace WerWirdMillionär
             labelMe.BackColor = Color.Transparent;
             labelMe.BringToFront();
 
+            // answerLabelNameA
+
+            transparentParent = button_answer_1;
+            me = label_answerLabelName_1;
+            labelMe = (Label)me;
+            pos = this.PointToScreen(labelMe.Location);
+            pos = transparentParent.PointToClient(pos);
+            labelMe.Parent = transparentParent;
+            labelMe.Location = pos;
+            labelMe.BackColor = Color.Transparent;
+            labelMe.BringToFront();
+
+            // answerLabelNameB
+
+            transparentParent = button_answer_2;
+            me = label_answerLabelName_2;
+            labelMe = (Label)me;
+            pos = this.PointToScreen(labelMe.Location);
+            pos = transparentParent.PointToClient(pos);
+            labelMe.Parent = transparentParent;
+            labelMe.Location = pos;
+            labelMe.BackColor = Color.Transparent;
+            labelMe.BringToFront();
+
+            // answerLabelNameC
+
+            transparentParent = button_answer_3;
+            me = label_answerLabelNameC_3;
+            labelMe = (Label)me;
+            pos = this.PointToScreen(labelMe.Location);
+            pos = transparentParent.PointToClient(pos);
+            labelMe.Parent = transparentParent;
+            labelMe.Location = pos;
+            labelMe.BackColor = Color.Transparent;
+            labelMe.BringToFront();
+
+            // answerLabelNameD
+
+            transparentParent = button_answer_4;
+            me = label_answerLabelName_4;
+            labelMe = (Label)me;
+            pos = this.PointToScreen(labelMe.Location);
+            pos = transparentParent.PointToClient(pos);
+            labelMe.Parent = transparentParent;
+            labelMe.Location = pos;
+            labelMe.BackColor = Color.Transparent;
+            labelMe.BringToFront();
+
 
         }
 
@@ -337,8 +398,9 @@ namespace WerWirdMillionär
 
         private void ErstellePreisListe()
         {
-            Label[] labelPreise = new Label[15];
-            Label[] labelZahlen = new Label[15];
+            groupBoxGeld.Controls.Clear();
+            labelPreise = new Label[15];
+            labelZahlen = new Label[15];
             string[] preise = { "50", "100", "200", "300", "500", "1.000", "2.000", "4.000", "8.000", "16.000", "32.000", "64.000", "125.000", "500.000", "1 MILLION" };
             //preise
             for (int i = 0; i < 15; i++)
@@ -369,6 +431,7 @@ namespace WerWirdMillionär
                     labelZahlen[i].Text = String.Format("{0}", i + 1);
                 groupBoxGeld.Controls.Add(labelZahlen[i]);
             }
+            labelPreise[preisStufe].ForeColor = Color.Green;
         }
 
 
@@ -384,19 +447,19 @@ namespace WerWirdMillionär
 
         private void setJoker1ButtonStateHover(object sender, EventArgs e)
         {
-            if (button_weiter.Visible == false)
+            if (button_weiter.Visible == false && jokerStatus1 == true)
                 button_joker_1.Image = jokerHover1;
         }
 
         private void setJoker2ButtonStateHover(object sender, EventArgs e)
         {
-            if (button_weiter.Visible == false)
+            if (button_weiter.Visible == false && jokerStatus2 ==true)
                 button_joker_2.Image = jokerHover2;
         }
 
         private void setJoker3ButtonStateHover(object sender, EventArgs e)
         {
-            if (button_weiter.Visible == false)
+            if (button_weiter.Visible == false && jokerStatus3 == true)
                 button_joker_3.Image = jokerHover3;
         }
 
@@ -409,9 +472,12 @@ namespace WerWirdMillionär
                 button_answer_2.Image = buttonIdle;
                 button_answer_3.Image = buttonIdle;
                 button_answer_4.Image = buttonIdle;
-                button_joker_1.Image = joker1Idle;
-                button_joker_2.Image = joker2Idle;
-                button_joker_3.Image = joker3Idle;
+                if(jokerStatus1 == true)
+                    button_joker_1.Image = joker1Idle;
+                if (jokerStatus2 == true)
+                    button_joker_2.Image = joker2Idle;
+                if (jokerStatus3 == true)
+                    button_joker_3.Image = joker3Idle;
             }
 
         }
@@ -428,10 +494,13 @@ namespace WerWirdMillionär
                     MessageBox.Show("Something went wrong");
                 }
                 String myStingValue = answerLabels[index - 1].Text;
+                if(myStingValue == "")
+                {
+                    return;
+                }
                 if (myStingValue == frageliste[r].AntwortR && button_weiter.Visible == false)
                 {
                     answerButtons[index - 1].Image = buttonRight;
-                    schwierigkeit++;
                     RufeWeiterButton("Weiter");
 
 
@@ -439,7 +508,10 @@ namespace WerWirdMillionär
                 else if (button_weiter.Visible == false)
                 {
                     answerButtons[index - 1].Image = buttonFalse;
+                    preisStufe = -1;
+                    schwierigkeit = 0;
                     RufeWeiterButton("Verloren");
+                    
                 }
             }
             catch (Exception ex)
@@ -469,8 +541,18 @@ namespace WerWirdMillionär
             {
                 MessageBox.Show(ex.StackTrace);
             }
-
-            MessageBox.Show("Es wurde Joker " + index + " ausgewählt!");
+            if(index == 1 && jokerStatus1 == true)
+            {
+                useJoker1();
+            }
+            if (index == 2 && jokerStatus2 == true)
+            {
+                useJoker2();
+            }
+            if (index == 3 && jokerStatus3 == true)
+            {
+                useJoker3();
+            }
         }
 
         private void RufeWeiterButton(String text)
@@ -484,9 +566,91 @@ namespace WerWirdMillionär
         {
             button_weiter.Visible = false;
             label_weiter.Visible = false;
-            verbindeDB();
-            anzeigezufälligeFrage();
+            if (preisStufe == -1)
+            {
+                verbindeDB();
+                jokerStatus1 = true;
+                jokerStatus2 = true;
+                jokerStatus3 = true;
+            }
+            holeFrage();
             resetAnswerButtonState(sender,e);
+            preisStufe++;
+            if(preisStufe == 15)
+            {
+                MessageBox.Show("Sie haben Gewonnen!");
+                Application.Exit();
+            }
+            ErstellePreisListe();
+        }
+
+        private void useJoker2() // 50/50
+        {
+            int counter = 0;
+            int alradyChosenIndex = -1;
+            while (counter < 2)
+            {
+                int rnd = new Random().Next(0, 3);
+                if(answerLabels[rnd].Text != frageliste[r].AntwortR && alradyChosenIndex != rnd)
+                {
+                    answerLabels[rnd].Text = "";
+                    alradyChosenIndex = rnd;
+                    counter++;
+                }
+            }
+            jokerStatus2 = false;
+            button_joker_2.Image = joker2Used;
+        }
+        private void useJoker1() // Publikums joker
+        {
+            MessageBox.Show("Frag jemanden aus dem Publikum der die Frage beantworten kann, gib ihm 500€!");
+            jokerStatus1 = false;
+            button_joker_1.Image = joker1Used;
+        }
+
+        private void useJoker3()
+        {
+            int index = 0;
+            if(label_answer_1.Text == frageliste[r].AntwortR)
+            {
+                index = 1;
+            }
+            if (label_answer_2.Text == frageliste[r].AntwortR)
+            {
+                index = 2;
+            }
+            if (label_answer_3.Text == frageliste[r].AntwortR)
+            {
+                index = 3;
+            }
+            if (label_answer_4.Text == frageliste[r].AntwortR)
+            {
+                index = 4;
+            }
+            int all = 100;
+            int[] prozente = new int[5];
+            prozente[index] += new Random().Next(30, 55);
+            all -= prozente[index];
+            for(int i = 1; i < 5;i++)
+            {
+                int rnd = new Random().Next(0, all+1);
+                prozente[i] += rnd;
+                all -= rnd;
+                if(i== 4 || all == 0)
+                {
+                    if(all != 0)
+                    {
+                        i = 1;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            }
+            MessageBox.Show("Antwort A: " + prozente[1] + "%\n" + "Antwort B: " + prozente[2] + "%\n" + "Antwort C: " + prozente[3] + "%\n" +"Antwort D: " + prozente[4] + "%\n");
+            jokerStatus3 = false;
+            button_joker_3.Image = joker3Used;
         }
 
     }
