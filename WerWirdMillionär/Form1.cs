@@ -71,7 +71,7 @@ namespace WerWirdMillionär
         {
             con = new OleDbConnection();
             con.ConnectionString = Properties.Settings.Default.DBCon;
-            con.ConnectionString = testDBString;
+            //con.ConnectionString = testDBString;
             try
             {
                 con.Open();
