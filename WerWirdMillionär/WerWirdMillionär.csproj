@@ -52,8 +52,14 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -66,6 +72,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -78,6 +88,48 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Image1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Joker_3_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Joker_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Joker_1_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Joker_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Joker_2_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button_Hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button_NegativePress.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button_Idle2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Joker_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button_PositivePress.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Joker_1_used.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Joker_2_used.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Joker_3_used.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
